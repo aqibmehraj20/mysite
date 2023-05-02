@@ -16,9 +16,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
-from openpyxl.descriptors import namespace
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
+    path('', include(('blog.urls', 'blog'), namespace='blog')),
+    # url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
 ]
